@@ -1,0 +1,29 @@
+{
+  "name": "michalper/tools",
+  "description": "Personal Tools",
+  "version": "0.0.1",
+  "homepage": "https://github.com/michalper/tools",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Michał Per",
+      "email": "michal.per@encja.com",
+      "homepage": "https://github.com/michalper",
+      "role": "Head Integration Developer"
+    }
+  ],
+  "support": {
+    "email": "michal.per@encja.com"
+  },
+  "require": {
+    "php": ">=5.3"
+  },
+  "require-dev": {
+  },
+  "type": "library",
+  "autoload": {
+    "psr-0": {
+      "Tools": "lib/"
+    }
+  }
+}
