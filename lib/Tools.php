@@ -4,25 +4,6 @@ namespace Tools;
 
 class Tools
 {
-    public static function logger($fileName, $data, $method = false, $idCustomer = false)
-    {
-        $log['date'] = date('Y-m-d H:i:s');
-        $log['body'] = $data;
-        if ($method)
-            $log['method'] = $method;
-        if ($idCustomer) {
-            $log['idCustomer'] = $idCustomer;
-            $idCustomer = '_' . $idCustomer;
-        }
-
-        file_put_contents(__DIR__ . '/../../log/' . $fileName . $idCustomer . '.log', print_r($log, true), FILE_APPEND);
-    }
-
-    public static function error($fileName, $data)
-    {
-        file_put_contents(__DIR__ . '/../../log/' . $fileName . '.log', date('Y-m-d H:i:s') . ' ' . print_r($data, true) . PHP_EOL, FILE_APPEND);
-    }
-
     public static function dump($die, $variable, $desc = false, $noHtml = false)
     {
         if (is_string($variable)) {
