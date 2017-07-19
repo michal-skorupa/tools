@@ -2,6 +2,10 @@
 
 namespace Tools;
 
+/**
+ * Class Tools
+ * @package Tools
+ */
 class Tools
 {
     public static function dump($die, $variable, $desc = false, $noHtml = false)
@@ -104,5 +108,24 @@ class Tools
         }
         $keys = array_keys($array);
         return (array_keys($keys) === $keys);
+    }
+
+    /**
+     * @param integer $time
+     * @return string
+     */
+    public static function prepareVisitTime($time)
+    {
+        return gmdate('H:i:s', $time);
+    }
+
+    /**
+     * @param $email
+     * @return bool|string
+     */
+    public static function getDomainFromEmail($email)
+    {
+        // Get the data after the @ sign
+        return substr(strrchr($email, "@"), 1);
     }
 }
