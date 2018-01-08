@@ -128,4 +128,15 @@ class Tools
         // Get the data after the @ sign
         return substr(strrchr($email, "@"), 1);
     }
+
+    /**
+     * @param string $xml
+     * @return array
+     */
+    public static function convertXmlToArray($xml)
+    {
+        $xml = simplexml_load_string($xml, "SimpleXMLElement", LIBXML_NOCDATA);
+        $array = json_decode(json_encode($xml), TRUE);
+        return $array;
+    }
 }
