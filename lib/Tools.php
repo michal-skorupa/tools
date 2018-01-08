@@ -137,6 +137,19 @@ class Tools
     {
         $xml = simplexml_load_string($xml, "SimpleXMLElement", LIBXML_NOCDATA);
         $array = json_decode(json_encode($xml), TRUE);
-        return $array;
+        return self::arrayChangeKeyCaseRecursive($array);
+    }
+
+    /**
+     * @param array $arr
+     * @return array
+     */
+    public static function arrayChangeKeyCaseRecursive($arr)
+    {
+        return array_map(function ($item) {
+            if (is_array($item))
+                $item = self::arrayChangeKeyCaseRecursive($item);
+            return $item;
+        }, array_change_key_case($arr));
     }
 }
