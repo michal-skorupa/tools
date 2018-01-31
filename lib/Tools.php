@@ -152,4 +152,14 @@ class Tools
             return $item;
         }, array_change_key_case($arr));
     }
+
+    /**
+     * @param integer $a
+     * @param integer $b
+     * @return integer
+     */
+    public static function greatestCommonDivisor($a, $b)
+    {
+        return $b ? self::greatestCommonDivisor($b, $a % $b) : $a;
+    }
 }
