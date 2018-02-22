@@ -162,4 +162,20 @@ class Tools
     {
         return $b ? self::greatestCommonDivisor($b, $a % $b) : $a;
     }
+
+    /**
+     * @param array $array
+     * @param int $sort_flags
+     * @return bool
+     */
+    private function ksortRecursive(&$array, $sort_flags = SORT_REGULAR)
+    {
+        if (!is_array($array)) return false;
+        ksort($array, $sort_flags);
+        foreach ($array as &$arr) {
+            $this->ksortRecursive($arr, $sort_flags);
+        }
+        return true;
+    }
+
 }
